@@ -1,8 +1,6 @@
 // options3.cairo
 // Execute `starklings hint options3` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
-
 #[derive(Drop)]
 struct Student {
     name: felt252,
@@ -37,8 +35,14 @@ fn display_grades(student: @Student, index: usize) {
     // TODO: Modify the following lines so that if there is a grade for the course, it is printed.
     //       Otherwise, print "No grade".
     // 
+    match course {
+        Option::Some(c) => {
+            println!("grade is {}", c);
+        },
+        Option::None => println!("No grade")
+    }
     println!("grade is {}", course.unwrap());
-    display_grades(student, index + 1);
+    
 }
 
 
